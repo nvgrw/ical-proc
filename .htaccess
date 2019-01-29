@@ -1,0 +1,9 @@
+SSLRequireSSL
+AuthType KerberosV5
+AuthName "Imperial only"
+require user nv516
+
+Order Allow,Deny
+<Files "ical-proc.cgi">
+Allow from all
+</Files>
