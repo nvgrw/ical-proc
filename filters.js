@@ -1,5 +1,5 @@
 function dropByUid(uid) {
-    return [ `$..VEVENT[?(@.UID=="${uid}")]`, () => null ]
+    return [ `$..VEVENT[?(@.UID=="${uid}")]`, () => undefined ]
 }
 
 function dropBySummary(summary) {
@@ -36,7 +36,7 @@ module.exports = [
     dropBySummary("CO572 Advanced Databases"),
     dropBySummary("CO343 Operations Research"),
     dropBySummary("CO iPr0gram (Imperial Programming Lectures)"),
-    [ "$..VEVENT[?(@.SUMMARY.startsWith(\"CO Careers Talk\"))]", () => null ],
+    [ "$..VEVENT[?(@.SUMMARY.startsWith(\"CO Careers Talk\"))]", () => undefined ],
 
     // Drop specific UIDs
     dropByUid("230c99e5-2dec-43b9-bcd6-cb2561f95e30"),
