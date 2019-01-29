@@ -2,7 +2,7 @@
   "name": "ical-proc",
   "version": "1.0.0",
   "description": "A CGI script for deployment on DoC home directories to arbitrarily process an iCal feed",
-  "main": "index.js",
+  "main": "ical-proc.cgi",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

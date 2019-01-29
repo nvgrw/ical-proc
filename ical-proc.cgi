@@ -25,7 +25,7 @@ function httpGetAsync(options) {
 (async function(){
     const icalData = await httpGetAsync(config.calendarUrl);
 
-    echo("Content-Type: text/text; charset=utf-8\r\n")
+    echo("Content-Type: text/calendar; charset=utf-8\r\n")
     echo("Status: 200 Success\r\n")
     echo("\r\n")
 
