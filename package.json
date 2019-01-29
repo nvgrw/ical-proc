@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/nvgrw/ical-proc/issues"
   },
-  "homepage": "https://github.com/nvgrw/ical-proc#readme"
+  "homepage": "https://github.com/nvgrw/ical-proc#readme",
+  "dependencies": {}
 }
