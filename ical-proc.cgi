@@ -2,7 +2,10 @@
 
 const process = require('process'),
       https = require('https');
-      config = require('./config.json')
+      config = require('./config.json'),
+      ij = require('ical2json'),
+      jp = require('jsonpath'),
+      filters = require('./filters.js');
 
 const echo = process.stdout.write.bind(process.stdout)
 
@@ -22,10 +25,17 @@ function httpGetAsync(options) {
 (async function(){
     const icalData = await httpGetAsync(config.calendarUrl);
 
-    echo("Content-Type: text/calendar; charset=utf-8\r\n")
+    echo("Content-Type: text/text; charset=utf-8\r\n")
     echo("Status: 200 Success\r\n")
     echo("\r\n")
-    echo(icalData)
+
+    const ical = ij.convert(icalData)
+
+    for (const filter of filters) {
+        jp.apply(ical, filter[0], filter[1])
+    }
+
+    echo(ij.revert(ical))
 })().catch((reason) => {
     echo("Content-Type: text/html; charset=utf-8\r\n")
     echo("Status: 500 Internal Server Error\r\n")
